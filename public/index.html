@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motor de workflows</title>
+<link rel="stylesheet" href="estilo.css">
+<style>
+.corpo{display:grid;grid-template-columns:300px 1fr;gap:16px;align-items:start}
+.item{padding:9px 10px;border-radius:9px;cursor:pointer;border:1px solid transparent}
+.item:hover,.item.ativo{background:var(--ink3);border-color:var(--linha)}
+svg text{font-family:Inter,"Segoe UI",sans-serif}
+.gantt{display:grid;grid-template-columns:120px 1fr 90px;gap:6px 10px;align-items:center}
+.trilho{position:relative;height:16px;background:var(--ink);border-radius:5px;overflow:hidden}
+.trilho i{position:absolute;top:0;bottom:0;border-radius:5px}
+@media (max-width:980px){.corpo{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="topo">
+  <div class="marca">Motor de <b>workflows</b></div>
+  <div class="sub">grafos, novas tentativas, agendamento e retomada</div>
+  <div class="fim"><button id="rodar">Executar onboarding</button></div>
+</header>
+<main class="pagina">
+  <section class="grade g4" id="kpis"></section>
+  <section class="corpo">
+    <div class="grade">
+      <div class="cartao"><h2>Execuções</h2><div id="lista"></div></div>
+      <div class="cartao"><h2>Agendas</h2><div id="agendas"></div></div>
+    </div>
+    <div class="grade">
+      <div class="cartao"><div class="linha" style="justify-content:space-between"><h2 id="titulo"></h2><span id="status"></span></div><div class="rolagem" id="grafo"></div></div>
+      <div class="cartao"><h2>Linha do tempo</h2><div class="gantt" id="gantt"></div></div>
+    </div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
